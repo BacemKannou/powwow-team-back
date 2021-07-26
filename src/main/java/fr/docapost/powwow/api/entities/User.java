@@ -19,6 +19,16 @@ public class User {
 	
 	@ManyToMany(fetch=FetchType.EAGER)
 	private Collection<Role> roles = new ArrayList<Role>();
+
+	@OneToOne(
+			cascade = {CascadeType.ALL},
+			fetch = FetchType.LAZY
+	)
+	@JoinColumn(
+			name = "PICTURE_MODEL_ID"
+	)
+	private PictureModel pictureModel;
+
 	public User() {
 		
 	}
@@ -73,6 +83,12 @@ public class User {
 	public void setRoles(Collection<Role> roles) {
 		this.roles = roles;
 	}
-	
 
+	public PictureModel getPictureModel() {
+		return pictureModel;
+	}
+
+	public void setPictureModel(PictureModel pictureModel) {
+		this.pictureModel = pictureModel;
+	}
 }

@@ -2,11 +2,15 @@ package fr.docapost.powwow.api.services;
 
 import fr.docapost.powwow.api.dao.RoleRepository;
 import fr.docapost.powwow.api.dao.UserRepository;
+import fr.docapost.powwow.api.entities.Auditable;
 import fr.docapost.powwow.api.entities.Role;
 import fr.docapost.powwow.api.entities.User;
+import fr.docapost.powwow.api.security.SecurityInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.Date;
 
 
 @Service
@@ -18,6 +22,9 @@ public class AccountServiceImpl implements AccountService{
 
 	@Autowired
 	private RoleRepository roleRepository;
+
+	@Autowired
+	private SecurityInfo securityInfo;
 	
 	@Override
 	public User saveUser(String userName, String password, String confirmerPassword) {

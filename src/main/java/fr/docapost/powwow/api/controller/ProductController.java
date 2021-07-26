@@ -29,6 +29,7 @@ public class ProductController {
 	Product getProductById(@PathVariable Long id) {	
 		return productService.findProductById(id);
 
+
 	}
 
 
